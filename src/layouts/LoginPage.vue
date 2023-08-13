@@ -13,9 +13,9 @@
                     <v-card-title>Welcome!</v-card-title>
                     <v-card-text>Silahkan login dengan akun anda</v-card-text>
                     <v-text-field v-model="email" label="Email" variant="outlined" prepend-inner-icon="mdi-account-circle" density="compact" clearable></v-text-field>
-                    <v-text-field v-model="password" label="Password" variant="outlined" prepend-inner-icon="mdi-lock" density="compact"></v-text-field>
+                    <v-text-field v-model="password" label="Password" variant="outlined" prepend-inner-icon="mdi-lock" density="compact" @keyup.enter="onLogin(), loading=true"></v-text-field>
                     <v-card-action>
-                        <v-btn class="mb-4 text-body-2" variant="flat" color="blue-darken-4" density="comfortable" block @click="onLogin">Login</v-btn>
+                        <v-btn class="mb-4 text-body-2" variant="flat" color="blue-darken-4" density="comfortable" block @click="onLogin(), loading=true" :loading="loading">Login</v-btn>
                     </v-card-action>
                 </v-card>
                 <div class="text-body-2 mt-2">
@@ -28,6 +28,7 @@
 import sideImage from '@/assets/login_img.png'
 
 import { useEnvStore } from '@/store/useEnvStore'
+import { useAuthStore } from '@/store/useAuthStore'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 export default {
@@ -36,7 +37,8 @@ export default {
             sideImage: sideImage,
             email: null,
             password: null,
-            token:null
+            token:null,
+            loading:false
         }
     },
     methods: {
@@ -47,16 +49,22 @@ export default {
                     password: this.password
                 })
                 console.log(login)
-                console.log(login.headers['set-cookie'])
+                useAuthStore().getToken(login.data.access_token)
+                // const refreshToken = login.data.refreshToken
+                // this.$cookies.set('refreshToken', refreshToken);
                 this.decodejwt(login.data.access_token)
-                this.aquireToken()
+                this.loading=false
+                // this.aquireToken() //enable this on production stage
+                this.$router.push('/')
             }
             catch (err) {
                 console.log(err)
             }
         },
         aquireToken() {
-            axios.get(useEnvStore().apiUrl + "token")
+            axios.get(useEnvStore().apiUrl + "token",{
+                withCredentials: true
+            })
                 .then((res) => {
                     console.log(res)
                 })
@@ -70,6 +78,7 @@ export default {
             try {
                 const decoded = jwt_decode(token, secret)
                 console.log(decoded)
+                useAuthStore().login(decoded)
             }
             catch (err) {
                 console.log(err)

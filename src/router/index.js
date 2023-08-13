@@ -7,6 +7,9 @@ import Login from '@/layouts/LoginPage.vue'
 import Register from '@/layouts/Register.vue'
 import Main from '@/views/MainPage.vue'
 import Shop from '@/views/ShopPage.vue'
+import Cart from '@/views/CartPage.vue'
+import Trans from '@/views/Trans/TransPage.vue'
+import TransDetail from '@/views/Trans/TransDetail.vue'
 
 const routes = [
   {
@@ -22,6 +25,21 @@ const routes = [
         path: 'shop',
         name: 'shop',
         component: Shop
+      },
+      {
+        path: 'cart',
+        name: 'cart',
+        component: Cart
+      },
+      {
+        path: 'transaction',
+        name: 'transaction',
+        component: Trans
+      },
+      {
+        path: 'transaction/:id',
+        name:'transactiondetail',
+        component: TransDetail
       }
     ],
   },

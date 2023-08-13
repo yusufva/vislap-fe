@@ -953,6 +953,11 @@ minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2:
   dependencies:
     brace-expansion "^1.1.7"
 
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
 ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
@@ -1063,6 +1068,11 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
+
+pinia-plugin-persistedstate@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/pinia-plugin-persistedstate/-/pinia-plugin-persistedstate-3.2.0.tgz#9932ca2ae88aa6c0d6763bebc6447d7bd1f097d0"
+  integrity sha512-tZbNGf2vjAQcIm7alK40sE51Qu/m9oWr+rEgNm/2AWr1huFxj72CjvpQcIQzMknDBJEkQznCLAGtJTIcLKrKdw==
 
 pinia@^2.0.0:
   version "2.1.4"
@@ -1276,6 +1286,11 @@ vite@^4.2.0:
     rollup "^3.25.2"
   optionalDependencies:
     fsevents "~2.3.2"
+
+vue-cookies@^1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/vue-cookies/-/vue-cookies-1.8.3.tgz#0c7ce26d150f7ac50356ae17cb4ead1122013b82"
+  integrity sha512-VBRsyRMVdahBgFfh389TMHPmDdr4URDJNMk4FKSCfuNITs7+jitBDhwyL4RJd3WUsfOYNNjPAkfbehyH9AFuoA==
 
 vue-demi@>=0.14.5:
   version "0.14.5"

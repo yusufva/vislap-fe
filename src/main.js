@@ -6,6 +6,7 @@
 
 // Components
 import App from './App.vue'
+import VueCookies from 'vue-cookies'
 
 // Composables
 import { createApp } from 'vue'
@@ -13,8 +14,19 @@ import { createApp } from 'vue'
 // Plugins
 import { registerPlugins } from '@/plugins'
 
+import { createPinia } from 'pinia'
+import piniaPluginPersistedState from 'pinia-plugin-persistedstate'
+
 const app = createApp(App)
 
 registerPlugins(app)
 
-app.mount('#app')
+app.use(createPinia().use(piniaPluginPersistedState)).mount('#app')
+const cookiesOptions = {
+    httpOnly: false,
+    maxAge: 72 * 60 * 60 * 1000,
+    secure: true, //comment this line for localhost
+    sameSite: false
+
+};
+app.use(VueCookies, cookiesOptions)
