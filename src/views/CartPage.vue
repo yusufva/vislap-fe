@@ -147,6 +147,7 @@ export default {
                     })
                 console.log(txs)
                 this.loadingAdd = false
+                this.getCartData()
             }
             catch (err) {
                 console.log(err)

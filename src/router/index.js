@@ -10,6 +10,8 @@ import Shop from '@/views/ShopPage.vue'
 import Cart from '@/views/CartPage.vue'
 import Trans from '@/views/Trans/TransPage.vue'
 import TransDetail from '@/views/Trans/TransDetail.vue'
+import Service from '@/views/ServicePage.vue'
+import About from '@/views/AboutPage.vue'
 
 const routes = [
   {
@@ -40,6 +42,16 @@ const routes = [
         path: 'transaction/:id',
         name:'transactiondetail',
         component: TransDetail
+      },
+      {
+        path: 'service',
+        name: 'service',
+        component: Service
+      },
+      {
+        path: 'about',
+        name: 'about',
+        component: About
       }
     ],
   },
