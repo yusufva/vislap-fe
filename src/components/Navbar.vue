@@ -19,6 +19,7 @@
                         <div class="d-flex flex-column">
                         <v-btn color="blue" prepend-icon="mdi-cart" variant="text" size="small" @click="this.$router.push('/cart')">Cart</v-btn>
                         <v-btn color="blue" prepend-icon="mdi-cash-multiple" variant="text" size="small" @click="this.$router.push('/transaction')">Trans</v-btn>
+                        <v-btn color="blue" prepend-icon="mdi-tools" variant="text" size="small" @click="this.$router.push('/servicelist')">Service</v-btn>
                         <v-btn color="red" prepend-icon="mdi-exit-to-app" variant="text" size="small" @click="onLogout()">Logout</v-btn>
                         </div>
                     </v-list>
