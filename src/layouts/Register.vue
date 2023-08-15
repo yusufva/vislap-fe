@@ -11,7 +11,7 @@
         <v-col class="d-flex flex-column align-center justify-center">
             <v-card class="w-50 px-6" variant="outlined" color="blue-darken-4">
                 <v-card-title>Welcome!</v-card-title>
-                <v-card-text>Silahkan login dengan akun anda</v-card-text>
+                <v-card-text>Silahkan lakukan pendaftaran akun anda</v-card-text>
                 <v-text-field v-model="name" label="Nama" variant="outlined" prepend-inner-icon="mdi-account-circle" density="compact" clearable></v-text-field>
                 <v-text-field v-model="email" label="Email" variant="outlined" prepend-inner-icon="mdi-account-circle" density="compact" clearable></v-text-field>
                 <v-text-field v-model="password" label="Password" variant="outlined" prepend-inner-icon="mdi-shield-key"
@@ -56,7 +56,7 @@ export default {
     methods: {
         async onRegist() {
             try {
-                const regist = await axios.post(useEnvStore().apiUrl + "users/register", {
+                const regist = await axios.post(useEnvStore().apiUrl + "users/registers", {
                     name: this.name,
                     email: this.email,
                     password: this.password,
