@@ -31,5 +31,7 @@ export const useAuthStore = defineStore('auth', {
             return this.username
         }
     },
-    persist: true
+    persist:{
+      storage: sessionStorage
+    }
 })
