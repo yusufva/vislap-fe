@@ -17,6 +17,11 @@
                 <v-card height="320">
                     <v-card-text>
                         <v-img class="mx-auto" width="180" height="180" :src="url+'images/'+items.photo">
+                            <template v-slot:placeholder>
+                                <div class="d-flex align-center justify-center fill-height">
+                                    <v-progress-circular color="grey-lighten-4" indeterminate></v-progress-circular>
+                                </div>
+                            </template>
                         </v-img>
                     </v-card-text>
                     <v-card-text class="text-left mx-4 mt-n4 text-body-2 font-weight-bold">{{formatCurrency(items.harga)}}</v-card-text>
@@ -124,7 +129,7 @@ export default {
                         })
                     this.cartLoading = false
                 }
-                catch(err){
+                catch (err) {
                     console.log(err)
                 }
             }

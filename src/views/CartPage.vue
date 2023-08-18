@@ -148,6 +148,7 @@ export default {
                 console.log(txs)
                 this.loadingAdd = false
                 this.getCartData()
+                this.$router.push('/transaction/'+txs.data.id)
             }
             catch (err) {
                 console.log(err)
