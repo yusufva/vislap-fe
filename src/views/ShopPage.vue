@@ -68,7 +68,8 @@
                     @click="
                       (count = 1),
                         (itemId = items.id),
-                        (itemPrice = items.harga)
+                        (itemPrice = items.harga),
+                        (added = false)
                     "
                   >
                   </v-btn>
@@ -91,6 +92,7 @@
                   </div>
                   <v-card-actions class="mt-n4">
                     <v-btn
+                      v-if="!added"
                       class="caption mx-auto"
                       color="blue-darken-3"
                       size="small"
@@ -99,6 +101,13 @@
                       @click="addToCart(), (cartLoading = true)"
                       :loading="cartLoading"
                     ></v-btn>
+                    <v-icon
+                      v-else
+                      class="caption mx-auto"
+                      color="green darken-3"
+                      size="small"
+                      >mdi-check-circle</v-icon
+                    >
                   </v-card-actions>
                 </v-card>
               </v-menu>
@@ -123,6 +132,7 @@ export default {
       count: 1,
       itemId: null,
       itemPrice: null,
+      added: false,
       cartLoading: false,
       loading: true,
       url: useEnvStore().apiUrl,
@@ -186,6 +196,7 @@ export default {
               },
             }
           );
+          this.added = true;
           useAuthStore().getCartValue();
           this.cartLoading = false;
         } catch (err) {
