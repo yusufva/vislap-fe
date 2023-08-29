@@ -55,7 +55,23 @@
       <v-card class="mt-4 ml-auto" width="400">
         <v-card-title class="text-blue-darken-3">Total</v-card-title>
         <v-table>
-          <tbody>
+          <!-- ketika cart kosong -->
+          <tbody v-if="Object.keys(cartItem).length === 0">
+            <tr>
+              <td>Subtotal</td>
+              <td>{{ formatCurrency(totalItemPrice) }}</td>
+            </tr>
+            <tr>
+              <td>Kode Unik</td>
+              <td>Rp 0</td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td>Rp 0</td>
+            </tr>
+          </tbody>
+          <!-- ketika cart memiliki item -->
+          <tbody v-else>
             <tr>
               <td>Subtotal</td>
               <td>{{ formatCurrency(totalItemPrice) }}</td>
@@ -171,6 +187,7 @@ export default {
         );
         console.log(txs);
         this.loadingAdd = false;
+        useAuthStore().getCartValue();
         this.getCartData();
         this.$router.push("/transaction/" + txs.data.id);
       } catch (err) {
@@ -193,7 +210,6 @@ export default {
       this.uniqueCode = Math.floor(Math.random() * 1000);
       this.grandTotal =
         parseInt(this.totalItemPrice) + parseInt(this.uniqueCode);
-      console.log(this.totalItemPrice, this.uniqueCode, this.grandTotal);
     },
   },
   mounted() {
