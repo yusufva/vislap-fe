@@ -86,12 +86,12 @@ export default {
         });
         console.log(login);
         useAuthStore().getToken(login.data.access_token);
-        // const refreshToken = login.data.refreshToken
-        // this.$cookies.set('refreshToken', refreshToken);
+        const refreshToken = login.data.refreshToken
+        await this.$cookies.set('refreshToken', refreshToken,'','','',false,"None");
         this.decodejwt(login.data.access_token);
         this.loading = false;
-        // this.aquireToken() //enable this on production stage
-        this.$router.push("/");
+        this.aquireToken() //enable this on production stage
+        // this.$router.push("/");
       } catch (err) {
         console.log(err);
         this.errormsg = err.response.data.message;
