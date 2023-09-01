@@ -3,6 +3,7 @@
         <v-progress-circular class="mt-16" :size="128" :width="12" color="blue-darken-3"
             indeterminate></v-progress-circular>
     </div>
+  <div v-else>
     <!-- for status menunggu pembayaran -->
     <div v-if="txDetail.status_id===1">
         <v-container>
@@ -157,6 +158,7 @@
             </v-card>
         </v-container>
     </div>
+  </div>
 </template>
 <script>
 import axios from 'axios';
