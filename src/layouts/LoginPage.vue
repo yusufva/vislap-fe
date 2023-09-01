@@ -87,7 +87,7 @@ export default {
         console.log(login);
         useAuthStore().getToken(login.data.access_token);
         const refreshToken = login.data.refreshToken
-        await this.$cookies.set('refreshToken', refreshToken,'','','',false,"None");
+        await this.$cookies.set('refreshToken', refreshToken,'','','',true,"None");
         this.decodejwt(login.data.access_token);
         this.loading = false;
         this.aquireToken() //enable this on production stage
